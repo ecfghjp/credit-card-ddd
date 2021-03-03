@@ -1,0 +1,32 @@
+The VO Objects should be named as CreditCardOperationsVO and should encapsulate - 
+- CredCardDetails
+- WithdrawalDetails
+- AssignedLimitDetails
+
+That is why its called domain object because it encapsulates all the complexities and
+ attributes of system.
+The convertions to view should be made at the Service level and we should only converting
+to lightweight TO objects.
+
+The Repository layer should be using embeddabel enteties
+
+previous transaction injected from outside - done in service layer
+
+
+Write converters
+Crete seperate Entity objects or just use the entity 
+
+Write a controller to create a CreditCard in database and test the application
+Global Exception handler clewanup
+Dockerize 
+Readme 
+and put it on GIT
+To get reviewed
+
+Scenarios 
+add first time transction
+Add credit card should be via event
+repay should generate an event
+
+generate maven build and docker
+JIB without docker

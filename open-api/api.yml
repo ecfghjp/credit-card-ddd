@@ -1,0 +1,165 @@
+openapi: 3.0.2
+
+info:
+  title: Credit Card Domain Driven Design
+  description: Samople application for Domain Driven design using Credit Card payment as example
+  version: 1.0.0
+servers:
+  - url: '{protocol}://{environment}.credit-ddd.com/v1'
+    variables:
+      environment:
+        default: api    # Production server
+        enum:
+          - api         # Production server
+          - api.dev     # Development server
+          - api.staging # Staging server
+      protocol:
+        default: http
+        enum:
+          - http
+          - https
+
+tags:
+- name: payment
+  description: Payment using a credit card
+- name: credit-card
+  description: credit card operations
+
+paths:
+  /credit/:
+    put:
+      tags:
+        - credit-card
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreditCardRequestDTO"
+      responses:
+        201:
+          description: Payment Response object back to the consumer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreditCardResponseDTO"
+        500:
+          description: Credit Card unsuccessfull
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PaymentResponseDTO"
+        
+  /credit/payment/:
+    post:
+      tags:
+        - payment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PaymentRequestDTO"
+      responses:
+        200:
+          description: Payment Response object back to the consumer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PaymentResponseDTO"
+        500:
+          description: Payment unsuccessfull
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PaymentResponseDTO"
+components:
+  schemas:
+    PaymentRequestDTO:
+      description: "Payment Request object required from Client"
+      type: object
+      items:
+        $ref: "#/components/schemas/PaymentRequestDTO"
+      properties:
+        creditCardNumber:
+          type: string
+          description: "Credit Card Number"
+        transactionAmount:
+          type: number
+          description: "Payment amount"
+        transactionPurpose:
+          type: string
+          description: "TTransaction Purpose can be either PAYMENT or REPAYMENT"
+          enum:
+            - PAYMENT
+            - REPAYMENT
+      required:
+        - creditCardNumber
+        - transactionAmount
+        - transactionPurpose
+      example:
+        {
+          "creditCardNumber": "1234",
+          "transactionAmount": 200,
+          "transactionPurpose": "REPAYMENT",
+        }
+    PaymentResponseDTO:
+      description: "Payment Response object returned to the Client"
+      type: object
+      items:
+        $ref: "#/components/schemas/PaymentResponseDTO"
+      properties:
+        transactionId:
+          type: string
+          description: "Returned Transaction ID"
+        transactionAmount:
+          type: number
+          description: "Payment amount"
+        remainingCreditAmount:
+          type: string
+          description: "Remaining Credit that can be used"
+      required:
+        - transactionId
+        - transactionAmount
+        - remainingCreditAmount
+      example:
+        {
+          "transactionId": "transactionID",
+          "transactionAmount": 200,
+          "remainingCreditAmount": 5000.00,
+        }
+    CreditCardRequestDTO:
+      description: "Credit Card Response object returned to the Client"
+      type: object
+      items:
+        $ref: "#/components/schemas/CreditCardRequestDTO"
+      properties:
+        creditCardNumber:
+          type: string
+          description: "Credit Card number"
+        limitAssigned:
+          type: number
+          description: "Credit Limit Assigned"
+      required:
+        - creditCardNumber
+        - limitAssigned
+      example:
+        {
+          "creditCardNumber": "1234",
+          "limitAssigned": 5000
+        }
+    CreditCardResponseDTO:
+      description: "Credit Card Response object returned to the Client"
+      type: object
+      items:
+        $ref: "#/components/schemas/CreditCardResponseDTO"
+      properties:
+        message:
+          type: string
+          description: "Credit Card number"
+      required:
+        - message
+      example:
+        {
+          "message": "1234"
+        }        
