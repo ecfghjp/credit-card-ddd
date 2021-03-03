@@ -5,7 +5,7 @@ The VO Objects should be named as CreditCardOperationsVO and should encapsulate 
 
 That is why its called domain object because it encapsulates all the complexities and
  attributes of system.
-The convertions to view should be made at the Service level and we should only converting
+The convertions to viiew should be made at the Service level and we should only converting
 to lightweight TO objects.
 
 The Repository layer should be using embeddabel enteties
