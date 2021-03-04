@@ -44,7 +44,7 @@ jobs:
   build-and-deploy-ecs:
     name: Publish and deploy to ECS
     runs-on: ubuntu-latest
-    needs: build-docker-image
+    needs: test
 
     steps:
       - uses: actions/checkout@v2
