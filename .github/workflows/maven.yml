@@ -82,7 +82,7 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: task-definition.json
-          container-name: learn
+          container-name: credit-card-ddd-container
           image: ${{ steps.build-image-ECR.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
