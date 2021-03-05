@@ -119,7 +119,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	}
 	
 	@ExceptionHandler
-	private ResponseEntity<?> creditCardTransactionInLastHour(TransactionInLastHour ex) {
+	private ResponseEntity<?> creditCardTransactionInLastHour(TransactionInLastHourException ex) {
 		List<String> details = new ArrayList<String>();
 		details.add(ex.getMessage());
 		ApiError err = new ApiError(LocalDateTime.now(), HttpStatus.INTERNAL_SERVER_ERROR, "Credit Transaction in Last 1 hour please wait", details);

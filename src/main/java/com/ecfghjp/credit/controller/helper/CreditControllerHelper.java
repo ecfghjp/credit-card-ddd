@@ -5,8 +5,12 @@ import com.ecfghjp.credit.service.domain.CreditCardTransaction;
 
 public final class CreditControllerHelper {
 
+	
+	private CreditControllerHelper() {
+	}
+
 	public static PaymentResponseDTO convertWithddrawalVOtoTO(CreditCardTransaction creditCardTransaction) {
-		return new PaymentResponseDTO(creditCardTransaction.getTransactionId().getTransactionId(),
+		return new PaymentResponseDTO(creditCardTransaction.getTransactionId().getId(),
 				creditCardTransaction.getTransactionAmount(), creditCardTransaction.creditLeftAfterTransaction());
 
 	}

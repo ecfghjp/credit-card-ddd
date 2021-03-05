@@ -1,17 +1,17 @@
 package com.ecfghjp.credit.service.domain;
 
 public class TransactionId {
-	private String transactionId;
+	private String id;
 
 	public TransactionId() {
 	}
 
 	public TransactionId(String transactionId) {
-		this.transactionId = transactionId;
+		this.id = transactionId;
 	}
 
-	public String getTransactionId() {
-		return transactionId;
+	public String getId() {
+		return id;
 	}
 
 }
