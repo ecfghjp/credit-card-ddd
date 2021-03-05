@@ -89,7 +89,7 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: learn-ec2-service
-          cluster: credit-card-service
+          service: credit-card-service
+          cluster: credit-card-ddd-cluster
           wait-for-service-stability: true
   
