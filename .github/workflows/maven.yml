@@ -75,4 +75,21 @@ jobs:
           # be deployed to ECS.
           docker build -t $ECR_REPOSITORY:$IMAGE_TAG --build-arg ACCESS_ARG=${{ secrets.AWS_ACCESS_KEY_ID }} --build-arg SECRET_ARG=${{ secrets.AWS_SECRET_ACCESS_KEY }} .
           docker push $ECR_REPOSITORY:$IMAGE_TAG
+          echo "::set-output name=image::$ECR_REPOSITORY:$IMAGE_TAG"
+
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: task-definition.json
+          container-name: learn
+          image: ${{ steps.build-image-ECR.outputs.image }}
+
+      - name: Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          service: learn-ec2-service
+          cluster: credit-card-service
+          wait-for-service-stability: true
   
