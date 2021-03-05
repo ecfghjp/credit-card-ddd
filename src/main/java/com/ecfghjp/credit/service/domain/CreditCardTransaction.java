@@ -100,9 +100,5 @@ public class CreditCardTransaction {
 		return true;
 	}
 
-	public CreditCardTransactionStatus getTransactionStatus() {
-		// TODO Auto-generated method stub
-		return creditCardTransactionStatus;
-	}
 
 }

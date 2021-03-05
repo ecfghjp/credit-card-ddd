@@ -3,19 +3,19 @@ package com.ecfghjp.credit.service.domain;
 import java.math.BigDecimal;
 
 public class CreditLimit {
-	private BigDecimal creditLimit;
+	private BigDecimal limit;
 	
 	public CreditLimit() {
 	}
 
-	public CreditLimit(BigDecimal creditLimit) {
+	public CreditLimit(BigDecimal limit) {
 		// TODO Auto-generated constructor stub
-		this.creditLimit = creditLimit;
+		this.limit = limit;
 	}
 
 	public BigDecimal getLimit() {
 		// TODO Auto-generated method stub
-		return creditLimit;
+		return limit;
 	}
 
 }

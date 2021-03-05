@@ -20,6 +20,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.ecfghjp.credit.exception.CreditLimitAlreadyRegistered;
 import com.ecfghjp.credit.exception.NotEnoughCreditException;
+import com.ecfghjp.credit.exception.TransactionInLastHourException;
 import com.ecfghjp.credit.service.CreditCardOperationsService;
 import com.ecfghjp.credit.service.domain.CreditCardConstants;
 import com.ecfghjp.credit.service.domain.CreditCardTransaction;
@@ -88,6 +89,11 @@ public class CreditCardOperationsControllerTest {
 
 	@Test
 	public void withdrawalRequest_FailWithWithdrawalInLastHour() throws Exception {
+		when(creditCardOperationsService.payment(any())).thenThrow(new TransactionInLastHourException());
+
+		mockMvc.perform(MockMvcRequestBuilders.post("/credit/payment/").content(
+				"{\"creditCardNumber\": \"100100100100\" ,\"transactionAmount\": 5000.0},\"transactionPurpose\": \"PAYMENT\"")
+				.contentType(MediaType.APPLICATION_JSON)).andExpect(status().isInternalServerError());
 
 	}
 
