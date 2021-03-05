@@ -26,7 +26,7 @@ To get reviewed
 Scenarios 
 add first time transction
 Add credit card should be via event
-repay should generate an event
+repay should generate an event - Event based still to do 
 
 generate maven build and docker - done
 JIB without docker
