@@ -1,8 +1,20 @@
-[![build](https://travis-ci.org/ecfghjp/jacoco-cov-badge-maven-plugin.svg?branch=main)](https://travis-ci.org/ecfghjp/jacoco-cov-badge-maven-plugin)
-[![Coverage Status](https://coveralls.io/repos/github/ecfghjp/jacoco-cov-badge-maven-plugin/badge.svg?branch=main)](https://coveralls.io/github/ecfghjp/jacoco-cov-badge-maven-plugin?branch=main)
+# Credit Card Transactin Service  - Domain Driven Design
 
 
-## Credit Card Transactin Service  - Domain Driven Design
+![Build Status](https://github.com/ecfghjp/credit-card-ddd/actions/workflows/credit-card-prod-ci-cd.yml/badge.svg)
+
+
+## Contents
+
+  - [Introduction](#introduction)
+  - [Requirements](#requirements)
+  - [Build Steps](#build-steps)
+  - [Validation](#validation)
+  - [Code Coverage](#code-coverage)
+  - [Quality Check](#quality-check)
+  
+## Introduction
+ 
 My First attempt at DDD using Spring boot microservices. Appreciate this is a very basic design where I have tried to keep the domain at the heart of the software.
 The project follows some patterns and best practices in Domain Driven Design such as :
 
@@ -30,7 +42,7 @@ For building and running the application you need:
 
 
 
-## Building and running microservices locally
+## Build Steps
 
 We can run the appplication locally in multiple ways on your local machine.
 
@@ -71,8 +83,6 @@ Following API best practices are implemented in the project.
  
  Sonarqube is used for quality checks
  
-## Sonarqube
-
 
 
 
