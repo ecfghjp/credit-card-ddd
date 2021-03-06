@@ -1,7 +1,6 @@
 # Credit Card Transactin Service  - Domain Driven Design
 
-
-![Build Status](https://github.com/ecfghjp/credit-card-ddd/actions/workflows/credit-card-prod-ci-cd.yml/badge.svg) 
+[![Main Pipeline](https://github.com/ecfghjp/credit-card-ddd/actions/workflows/credit-card-prod-ci-cd.yml/badge.svg)](https://github.com/ecfghjp/credit-card-ddd/actions/workflows/credit-card-prod-ci-cd.yml)
 [![GitHub issues](https://img.shields.io/github/issues/ecfghjp/credit-card-ddd?style=plastic)](https://github.com/ecfghjp/credit-card-ddd/issues)
 
 
