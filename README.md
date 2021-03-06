@@ -1,4 +1,5 @@
-![Build Status](https://github.com/ecfghjp/credit-card-ddd/actions/workflows/credit-card-prod-ci-cd.yml/badge.svg)
+[![build](https://travis-ci.org/ecfghjp/jacoco-cov-badge-maven-plugin.svg?branch=main)](https://travis-ci.org/ecfghjp/jacoco-cov-badge-maven-plugin)
+[![Coverage Status](https://coveralls.io/repos/github/ecfghjp/jacoco-cov-badge-maven-plugin/badge.svg?branch=main)](https://coveralls.io/github/ecfghjp/jacoco-cov-badge-maven-plugin?branch=main)
 
 
 ## Credit Card Transactin Service  - Domain Driven Design
