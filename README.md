@@ -1,3 +1,6 @@
+![Build Status](https://github.com/ecfghjp/credit-card-ddd/actions/workflows/credit-card-prod-ci-cd.yml/badge.svg)
+
+
 ## Credit Card Transactin Service  - Domain Driven Design
 My First attempt at DDD using Spring boot microservices. Appreciate this is a very basic design where I have tried to keep the domain at the heart of the software.
 The project follows some patterns and best practices in Domain Driven Design such as :
