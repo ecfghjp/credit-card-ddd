@@ -9,6 +9,7 @@
   - [Introduction](#introduction)
   - [Requirements](#requirements)
   - [Build Steps](#build-steps)
+  - [Continous Integration/Deployment](#continous-integration-deployment)
   - [Validation](#validation)
   - [Code Coverage](#code-coverage)
   - [Quality Check](#quality-check)
@@ -53,6 +54,24 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 ```shell
 mvn spring-boot:run
 ```
+
+I have also included files to run locally with and without docker container
+
+Before running the shell commands make sure the permissions are granted using :
+
+ - `chmod 777 build-and-run-docker.sh`
+ - `chmod 777 build-and-run-local.sh`
+ 
+With docker containerization 
+ - cd to project in your preferred terminal 
+ - run `./build-and-run-docker.sh`
+ 
+Without docker
+ -  - cd to project in your preferred terminal 
+ - run `./build-and-run-local.sh`
+
+## Continous Integration/Deployment
+
 
 ## Exception Handling
 Exception handling is a very essential part of any Project as correct messages need to be deliveered across to the consumer in case anything fails.
