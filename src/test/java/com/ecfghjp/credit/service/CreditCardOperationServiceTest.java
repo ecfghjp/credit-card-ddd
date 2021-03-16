@@ -14,7 +14,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.ecfghjp.credit.controller.domain.PaymentRequestDTO;
+import com.ecfghjp.credit.controller.domain.TransactionRequestDTO;
 import com.ecfghjp.credit.exception.InvalidOperationException;
 import com.ecfghjp.credit.exception.NotEnoughCreditException;
 import com.ecfghjp.credit.service.domain.CreditCard;
@@ -62,7 +62,7 @@ class CreditCardOperationServiceTest {
 		when(creditCardRepository.findCreditCardDetails(any())).thenReturn(creditCard);
 
 
-		PaymentRequestDTO paymentRequestDTO = new PaymentRequestDTO("100100100100",new BigDecimal(500),TransactionPurpose.PAYMENT);
+		TransactionRequestDTO paymentRequestDTO = new TransactionRequestDTO("100100100100",new BigDecimal(500),TransactionPurpose.PAYMENT);
 		
 		CreditCardTransaction creditCardTransaction = creditService.payment(paymentRequestDTO);
 		assertThat(creditCardTransaction.getTransactionAmount()).isEqualTo(new BigDecimal(500));
@@ -88,7 +88,7 @@ class CreditCardOperationServiceTest {
 		when(creditCardRepository.findCreditCardDetails(any())).thenReturn(creditCard);
 
 
-		PaymentRequestDTO paymentRequestDTO = new PaymentRequestDTO("100100100100",new BigDecimal(500),TransactionPurpose.PAYMENT);
+		TransactionRequestDTO paymentRequestDTO = new TransactionRequestDTO("100100100100",new BigDecimal(500),TransactionPurpose.PAYMENT);
 		
 		CreditCardTransaction creditCardTransaction = creditService.payment(paymentRequestDTO);
 		assertThat(creditCardTransaction.getTransactionAmount()).isEqualTo(new BigDecimal(500));
@@ -114,7 +114,7 @@ class CreditCardOperationServiceTest {
 		when(creditCardRepository.findCreditCardDetails(any())).thenReturn(creditCard);
 
 
-		PaymentRequestDTO paymentRequestDTO = new PaymentRequestDTO("100100100100",new BigDecimal(500),TransactionPurpose.REPAYMENT);
+		TransactionRequestDTO paymentRequestDTO = new TransactionRequestDTO("100100100100",new BigDecimal(500),TransactionPurpose.REPAYMENT);
 		
 		CreditCardTransaction creditCardTransaction = creditService.payment(paymentRequestDTO);
 		assertThat(creditCardTransaction.getTransactionAmount()).isEqualTo(new BigDecimal(500));
@@ -145,7 +145,7 @@ class CreditCardOperationServiceTest {
 		when(creditCardRepository.findCreditCardDetails(any())).thenReturn(creditCard);
 
 
-		PaymentRequestDTO paymentRequestDTO = new PaymentRequestDTO("100100100100",new BigDecimal(500),TransactionPurpose.PAYMENT);
+		TransactionRequestDTO paymentRequestDTO = new TransactionRequestDTO("100100100100",new BigDecimal(500),TransactionPurpose.PAYMENT);
 		
 		Assertions.assertThrows(InvalidOperationException.class, () -> {
 			creditService.payment(paymentRequestDTO);
@@ -172,7 +172,7 @@ class CreditCardOperationServiceTest {
 		when(creditCardRepository.findCreditCardDetails(any())).thenReturn(creditCard);
 
 
-		PaymentRequestDTO paymentRequestDTO = new PaymentRequestDTO("100100100100",new BigDecimal(1200),TransactionPurpose.PAYMENT);
+		TransactionRequestDTO paymentRequestDTO = new TransactionRequestDTO("100100100100",new BigDecimal(1200),TransactionPurpose.PAYMENT);
 		
 		Assertions.assertThrows(NotEnoughCreditException.class, () -> {
 			creditService.payment(paymentRequestDTO);
@@ -198,7 +198,7 @@ class CreditCardOperationServiceTest {
 		when(creditCardRepository.findCreditCardDetails(any())).thenReturn(creditCard);
 
 
-		PaymentRequestDTO paymentRequestDTO = new PaymentRequestDTO("100100100100",new BigDecimal(500),TransactionPurpose.PAYMENT);
+		TransactionRequestDTO paymentRequestDTO = new TransactionRequestDTO("100100100100",new BigDecimal(500),TransactionPurpose.PAYMENT);
 		
 		Assertions.assertThrows(InvalidOperationException.class, () -> {
 			creditService.payment(paymentRequestDTO);

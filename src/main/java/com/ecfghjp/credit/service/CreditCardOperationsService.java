@@ -1,10 +1,12 @@
 package com.ecfghjp.credit.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ecfghjp.credit.controller.domain.CreditCardRequestDTO;
-import com.ecfghjp.credit.controller.domain.PaymentRequestDTO;
+import com.ecfghjp.credit.controller.domain.TransactionRequestDTO;
 import com.ecfghjp.credit.exception.CreditLimitAlreadyRegistered;
 import com.ecfghjp.credit.service.domain.CreditCard;
 import com.ecfghjp.credit.service.domain.CreditCardConstants;
@@ -32,7 +34,7 @@ public class CreditCardOperationsService {
 		this.creditCardRepository = creditCardRepository;
 	}
 
-	public CreditCardTransaction payment(PaymentRequestDTO paymentRequestDTO) {
+	public CreditCardTransaction payment(TransactionRequestDTO paymentRequestDTO) {
 		CreditCardTransaction previousTransaction = creditCardOperationsRepository
 				.findLastCreditCardTransaction(paymentRequestDTO.getCreditCardNumber());
 		
@@ -65,6 +67,11 @@ public class CreditCardOperationsService {
 		}else {
 			throw new CreditLimitAlreadyRegistered();
 		}
+	}
+
+	public List<CreditCardTransaction> fetchTransactions(Object any) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

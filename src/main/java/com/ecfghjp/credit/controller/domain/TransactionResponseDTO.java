@@ -2,18 +2,21 @@ package com.ecfghjp.credit.controller.domain;
 
 import java.math.BigDecimal;
 
-public class PaymentResponseDTO {
+public class TransactionResponseDTO {
 	private String transactionId;
 	private BigDecimal transactionAmount;
 	private BigDecimal remainingCreditAmount;
+	private String transactionDate;
 
-	public PaymentResponseDTO() {
+	public TransactionResponseDTO() {
 	}
 
-	public PaymentResponseDTO(String transactionId, BigDecimal transactionAmount, BigDecimal remainingCreditAmount) {
+	public TransactionResponseDTO(String transactionId, BigDecimal transactionAmount, BigDecimal remainingCreditAmount,
+			String transactionDate) {
 		this.transactionId = transactionId;
 		this.transactionAmount = transactionAmount;
 		this.remainingCreditAmount = remainingCreditAmount;
+		this.transactionDate = transactionDate;
 	}
 
 	public String getTransactionId() {
@@ -26,6 +29,10 @@ public class PaymentResponseDTO {
 
 	public BigDecimal getRemainingCreditAmount() {
 		return remainingCreditAmount;
+	}
+
+	public String getTransactionDate() {
+		return transactionDate;
 	}
 
 }
