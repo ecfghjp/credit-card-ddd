@@ -4,13 +4,13 @@ import java.math.BigDecimal;
 
 import com.ecfghjp.credit.service.domain.TransactionPurpose;
 
-public class PaymentRequestDTO {
+public class TransactionRequestDTO {
 
 	private String creditCardNumber;
 	private BigDecimal transactionAmount;
 	private TransactionPurpose transactionPurpose;
 
-	public PaymentRequestDTO(String creditCardNumber, BigDecimal transactionAmount,
+	public TransactionRequestDTO(String creditCardNumber, BigDecimal transactionAmount,
 			TransactionPurpose transactionPurpose) {
 		this.creditCardNumber = creditCardNumber;
 		this.transactionAmount = transactionAmount;
